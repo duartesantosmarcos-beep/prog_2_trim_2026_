@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Transformando Nossa Escola</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f2f2;
+            color: #222;
+        }
+
+        /* MENU */
+        header {
+            background: #111;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* CAPA */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(
+                rgba(0,0,0,0.75),
+                rgba(0,0,0,0.75)
+            ),
+            url("quadrinho.png");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            color: white;
+        }
+
+        .hero h2 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #111;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            transform: scale(1.08);
+            background: #ddd;
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 70px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* ANTES E DEPOIS */
+        .comparacao {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card h3 {
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .antes h3 {
+            background: #333;
+            color: white;
+        }
+
+        .depois h3 {
+            background: #eee;
+            color: #111;
+        }
+
+        .card p {
+            padding: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* QUADRINHO */
+        .quadrinho {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .quadrinho img {
+            display: block;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            border: 5px solid white;
+            border-radius: 10px;
+        }
+
+        /* MUDANÇAS */
+        .mudancas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .mudanca {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .mudanca .icone {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .mudanca h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .mudanca p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* MENSAGEM FINAL */
+        .final {
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        .final h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .final p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: #000;
+            color: #aaa;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* CELULAR */
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .hero h2 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .comparacao {
+                grid-template-columns: 1fr;
+            }
+
+            .mudancas {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header>
+        <h1>🏫 Nossa Escola</h1>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#antes">Antes e Depois</a>
+            <a href="#quadrinho">Quadrinho</a>
+            <a href="#mudancas">Mudanças</a>
+        </nav>
+    </header>
+
+
+    <!-- CAPA -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <h2>Transformando Nossa Escola</h2>
+
+            <p>
+                Uma escola pode mudar quando alunos, professores,
+                funcionários e comunidade trabalham juntos.
+            </p>
+
+            <a href="#antes" class="botao">
+                Ver a transformação ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ANTES E DEPOIS -->
+    <section id="antes">
+
+        <div class="titulo">
+
+            <h2>Antes e Depois</h2>
+
+            <p>
+                Veja como pequenas atitudes podem transformar
+                o ambiente escolar.
+            </p>
+
+        </div>
+
+
+        <div class="comparacao">
+
+            <div class="card antes">
+
+                <h3>ANTES 😟</h3>
+
+                <p>
+                    A escola estava abandonada, com problemas
+                    na estrutura, salas sujas e poucos recursos.
+                    Os alunos estavam desanimados e a comunidade
+                    não participava.
+                </p>
+
+            </div>
+
+
+            <div class="card depois">
+
+                <h3>DEPOIS 😊</h3>
+
+                <p>
+                    A escola foi cuidada, as salas ficaram limpas
+                    e organizadas, os alunos ficaram mais
+                    motivados e a comunidade passou a participar.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUADRINHO -->
+    <section class="quadrinho" id="quadrinho">
+
+        <div class="titulo">
+
+            <h2>O Quadrinho</h2>
+
+            <p style="color: #ccc;">
+                A transformação da escola representada em uma história.
+            </p>
+
+        </div>
+
+        <img src="quadrinho.png" alt="Quadrinho mostrando o antes e depois da escola">
+
+    </section>
+
+
+    <!-- MUDANÇAS -->
+    <section id="mudancas">
+
+        <div class="titulo">
+
+            <h2>O que mudou?</h2>
+
+            <p>
+                Algumas das principais transformações.
+            </p>
+
+        </div>
+
+
+        <div class="mudancas">
+
+            <div class="mudanca">
+
+                <div class="icone">🏫</div>
+
+                <h3>Escola renovada</h3>
+
+                <p>
+                    O espaço ficou mais organizado,
+                    limpo e agradável para todos.
+                </p>
+
+            </div>
+
+
+            <div class="mudanca">
+
+                <div class="icone">📚</div>
+
+                <h3>Mais aprendizado</h3>
+
+                <p>
+                    Os alunos ficaram mais motivados
+                    para estudar e participar.
+                </p>
+
+            </div>
+
+
+            <div class="mudanca">
+
+                <div class="icone">🤝</div>
+
+                <h3>Comunidade unida</h3>
+
+                <p>
+                    Todos passaram a colaborar para
+                    melhorar a escola.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENSAGEM FINAL -->
+    <section class="final">
+
+        <h2>Juntos podemos transformar! ❤️</h2>
+
+        <p>
+            Quando alunos, professores, funcionários e comunidade
+            cuidam da escola, todos ganham um ambiente melhor
+            para aprender, conviver e crescer.
+        </p>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            © 2026 - Projeto Transformando Nossa Escola
+        </p>
+
+    </footer>
+
+</body>
+</html>
